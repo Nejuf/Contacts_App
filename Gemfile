@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-
+require 'addressable/uri'
+gem 'rest-client'
 gem 'rails', '3.2.12'
 
 # Bundle edge Rails instead:
