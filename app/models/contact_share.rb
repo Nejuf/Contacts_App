@@ -1,5 +1,5 @@
 class ContactShare < ActiveRecord::Base
-  attr_accessible :contact_id, :sharing_user_id, :receiving_user_id
+  attr_accessible :contact_id, :sharing_user_id, :receiving_user_id, :favorited
   validates :receiving_user_id, presence: true
   validates :contact_id, presence: true
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131009211957) do
+ActiveRecord::Schema.define(:version => 20131009220742) do
 
   create_table "contact_shares", :force => true do |t|
     t.integer  "contact_id",        :null => false
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20131009211957) do
     t.datetime "updated_at",        :null => false
     t.integer  "sharing_user_id"
     t.integer  "receiving_user_id"
+    t.boolean  "favorited"
   end
 
   add_index "contact_shares", ["contact_id"], :name => "index_contact_shares_on_contact_id"
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20131009211957) do
     t.integer  "user_id",    :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "favorited"
   end
 
   add_index "contacts", ["user_id"], :name => "index_contacts_on_user_id"

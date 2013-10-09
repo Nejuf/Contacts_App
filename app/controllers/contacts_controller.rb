@@ -56,4 +56,14 @@ class ContactsController < ApplicationController
     SQL
   end
 
+  def self.favorite_contacts_for_user_id(user_id)
+    Contact.find_by_sql([<<-SQL, user_id, user_id])
+    SELECT contacts.*
+    FROM contacts LEFT OUTER JOIN contact_shares
+    ON contacts.id = contact_shares.contact_id
+    WHERE (contacts.user_id = ? OR contact_shares.receiving_user_id = ?)
+      AND (contacts.favorited = 't' OR contact_shares.favorited = 't')
+    SQL
+  end
+
 end

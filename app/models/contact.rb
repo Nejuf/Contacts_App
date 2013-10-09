@@ -1,5 +1,5 @@
 class Contact < ActiveRecord::Base
-  attr_accessible :name, :email, :user_id
+  attr_accessible :name, :email, :user_id, :favorited
   validates :user_id, presence: true
 
   belongs_to(
