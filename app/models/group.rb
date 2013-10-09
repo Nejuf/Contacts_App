@@ -1,5 +1,5 @@
 class Group < ActiveRecord::Base
-  attr_accessible :user_id
+  attr_accessible :user_id, :name
 
   belongs_to(
   :user,

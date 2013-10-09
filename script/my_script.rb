@@ -13,7 +13,7 @@
 url = Addressable::URI.new(
   scheme: 'http',
   host: 'localhost:3000',
-  path: '/users/2/favorites'
+  path: '/users/1/groups'
 ).to_s
 
 puts RestClient.get(url)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131009225233) do
+ActiveRecord::Schema.define(:version => 20131009232603) do
 
   create_table "contact_group_joins", :force => true do |t|
     t.integer  "group_id",   :null => false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20131009225233) do
   end
 
   add_index "contact_group_joins", ["contact_id"], :name => "index_contact_group_joins_on_contact_id"
+  add_index "contact_group_joins", ["group_id", "contact_id"], :name => "index_contact_group_joins_on_group_id_and_contact_id", :unique => true
   add_index "contact_group_joins", ["group_id"], :name => "index_contact_group_joins_on_group_id"
 
   create_table "contact_shares", :force => true do |t|
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20131009225233) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "name"
   end
 
   add_index "groups", ["user_id"], :name => "index_groups_on_user_id"
