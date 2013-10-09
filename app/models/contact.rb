@@ -16,4 +16,10 @@ class Contact < ActiveRecord::Base
   :primary_key => :id
   )
 
+  has_many :contact_group_joins
+
+  has_many(
+  :groups,
+    through: :contact_group_joins
+  )
 end
